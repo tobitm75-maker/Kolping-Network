@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Kolping Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ LANDING -->
+
+<div id="screen-landing" class="screen active">
+  <div class="noise-overlay"></div>
+  <div class="landing-hero">
+    <div class="landing-logo">K</div>
+    <div class="landing-badge">Kolping House &middot; New York City</div>
+    <h1 class="landing-title">Reconnect with your Kolping family</h1>
+    <p class="landing-sub">A private network for everyone who called the Kolping House in NYC home &mdash; find old friends, discover new connections, grow together.</p>
+    <button class="btn-enter" onclick="enterApp()">Enter the Network &rarr;</button>
+    <p class="landing-hint">Invitation-only for former Kolping House residents</p>
+  </div>
+  <div class="landing-features">
+    <div class="feature-card"><span class="fc-icon">🏠</span><div><div class="fc-title">Shared experience</div><div class="fc-sub">Connected by more than a city &mdash; by a home</div></div></div>
+    <div class="feature-card"><span class="fc-icon">🔗</span><div><div class="fc-title">Cohort matching</div><div class="fc-sub">See who was at Kolping at the same time as you</div></div></div>
+    <div class="feature-card"><span class="fc-icon">💼</span><div><div class="fc-title">Opportunities</div><div class="fc-sub">Jobs, internships &amp; referrals from your network</div></div></div>
+    <div class="feature-card"><span class="fc-icon">📍</span><div><div class="fc-title">Local chapters</div><div class="fc-sub">Find alumni in your current city</div></div></div>
+  </div>
+  <div class="landing-stats">
+    <div class="stat"><div class="stat-n">47</div><div class="stat-l">Members</div></div>
+    <div class="stat"><div class="stat-n">12+</div><div class="stat-l">Countries</div></div>
+    <div class="stat"><div class="stat-n">2015</div><div class="stat-l">Since</div></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ APP SHELL -->
+
+<div id="screen-app" class="screen">
+
+  <!-- Top Bar -->
+
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-logo">K</div>
+      <span class="topbar-name">Kolping Network</span>
+    </div>
+    <div id="topbar-avatar" class="avatar" style="width:34px;height:34px;font-size:12px;"></div>
+  </div>
+
+  <!-- Tab Content -->
+
+  <div class="tab-content" id="tab-content"></div>
+
+  <!-- Bottom Nav -->
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-tab="network" onclick="switchTab('network',this)">
+      <span class="nav-icon">👥</span><span class="nav-label">Network</span>
+    </button>
+    <button class="nav-btn" data-tab="messages" onclick="switchTab('messages',this)">
+      <span class="nav-icon">💬</span><span class="nav-label">Messages</span>
+    </button>
+    <button class="nav-btn" data-tab="feed" onclick="switchTab('feed',this)">
+      <span class="nav-icon">📰</span><span class="nav-label">Feed</span>
+    </button>
+    <button class="nav-btn" data-tab="events" onclick="switchTab('events',this)">
+      <span class="nav-icon">📅</span><span class="nav-label">Events</span>
+    </button>
+    <button class="nav-btn" data-tab="opportunities" onclick="switchTab('opportunities',this)">
+      <span class="nav-icon">💼</span><span class="nav-label">Jobs</span>
+    </button>
+  </nav>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ PROFILE VIEW -->
+
+<div id="screen-profile" class="screen overlay-screen">
+  <div class="topbar">
+    <button class="back-btn" onclick="closeProfile()">&larr;</button>
+    <span class="topbar-name">Profile</span>
+  </div>
+  <div id="profile-content" class="overlay-body"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ CHAT VIEW -->
+
+<div id="screen-chat" class="screen overlay-screen">
+  <div class="topbar" id="chat-topbar"></div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-input-row">
+    <input id="chat-input" class="chat-input" placeholder="Message..." onkeydown="chatKeydown(event)" />
+    <button class="chat-send-btn" id="chat-send-btn" onclick="sendMessage()">&#8593;</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
